@@ -1,0 +1,20 @@
+
+
+
+
+
+const CartItem = ({item, deleteFromCart}) => {
+
+    const {name, price, id} = item;
+
+  return (
+    <div className='cart-item'>
+        <h4>{name}</h4>
+        <h5>${price}</h5>
+        <button onClick={() => deleteFromCart(id)}>Eliminar Uno</button>
+        <button onClick={() => deleteFromCart(id)}>Eliminar todos</button>
+    </div>
+  )
+}
+
+export default CartItem
