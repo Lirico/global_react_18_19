@@ -11,8 +11,13 @@ const CartContextProvider = ({children}) => {
 
     const addToCart = (id) => dispatch({type: TYPES.ADD_TO_CART, payload: id});
 
-    const deleteFromCart = (id) => dispatch({type: TYPES.REMOVE_ONE_ITEM});
-
+    const deleteFromCart = (id, all = false) => {
+      if (all) {
+        dispatch({type: TYPES.REMOVE_ALL_ITEMS, payload: id});
+      } else {
+        dispatch({type: TYPES.REMOVE_ONE_ITEM, payload: id});
+      }
+    }
     const value = {state, addToCart, deleteFromCart};
 
   return (
