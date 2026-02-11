@@ -2,6 +2,13 @@ import { TYPES } from "./actions";
 
 export function reducer(state, action) {
   switch (action.type) {
+    case TYPES.READ_STATE: {
+      return {
+        ...state,
+        products: action.payload.products,
+        cart: action.payload.cart
+      }
+    }
     case TYPES.ADD_TO_CART: {
       const newItem = state.products.find(
         (product) => product.id === action.payload,
@@ -58,3 +65,11 @@ export function reducer(state, action) {
       return state;
   }
 }
+
+
+/* 
+  axios.get() -> leer la db
+  axios.post() -> insertar un objeto en la db
+  axios.put() -> editar un objeto de la db
+  axios.delete() -> mondongo
+*/
